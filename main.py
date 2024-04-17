@@ -11,10 +11,16 @@ class WelcomeScreen(QDialog):
     super(WelcomeScreen, self).__init__()
     loadUi("welcomeScreen.ui", self)
     self.login_button.clicked.connect(self.gotologin)
+    self.register_button.clicked.connect(self.gotocreate)
 
   def gotologin(self):
     login = LoginScreen()
     widget.addWidget(login)
+    widget.setCurrentIndex(widget.currentIndex()+1)
+
+  def gotocreate(self):
+    create = CreateAccScreen()
+    widget.addWidget(create)
     widget.setCurrentIndex(widget.currentIndex()+1)
 
 
@@ -52,7 +58,38 @@ class LoginScreen(QDialog):
     else:
       self.error_message.setText("Invalid username or password")
 
+class CreateAccScreen(QDialog):
+  def __init__(self):
+    super(CreateAccScreen, self).__init__()
+    loadUi("registerScreen.ui", self)
+    self.create_button.clicked.connect(self.createaccount)
 
+  def createaccount(self):
+    user = self.email_field.text()
+    password = self.password_field.text()
+    repeatPassword = self.repeat_password_field.text()
+
+    if len(user) == 0 or len(password) == 0 or len(repeatPassword) == 0:
+      self.error_message.setText("Please, fill all inputs.")
+
+    elif password!=repeatPassword:
+      self.error_message.setText("The passwords don't match")
+
+    else:
+      conn = sqlite3.connect("shop_data.db")
+      cur = conn.cursor()
+
+      user_info = [user, password]
+      cur.execute('INSERT INTO login_info (username, password) VALUES (?, ?)', user_info)
+
+      conn.commit()
+      conn.close()
+
+      print("User registered :) ")
+      # fillprofile = FillProfileScreen()
+      # widget.addWidget(fillprofile)
+      # widget.setCurrentIndex(widget.currentIndex()+1)
+    
 
 app = QApplication(sys.argv)
 welcome=WelcomeScreen()

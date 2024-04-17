@@ -89,7 +89,7 @@
 </string>
          </property>
          <property name="text">
-          <string>Login</string>
+          <string>Cadastro</string>
          </property>
         </widget>
        </item>
@@ -129,7 +129,7 @@
           <string notr="true">color: rgb(255, 255, 255);</string>
          </property>
          <property name="text">
-          <string>Entre em sua conta</string>
+          <string>Crie sua conta</string>
          </property>
         </widget>
        </item>
@@ -189,6 +189,62 @@
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
+     <widget class="QFrame" name="frame_7">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QLabel" name="password_label">
+         <property name="font">
+          <font>
+           <family>Tahoma</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#password_label { color: white;}</string>
+         </property>
+         <property name="text">
+          <string>Senha</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="password_field">
+         <property name="maximumSize">
+          <size>
+           <width>280</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Tahoma</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter">
      <widget class="QFrame" name="frame_2">
       <property name="minimumSize">
        <size>
@@ -204,7 +260,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QLabel" name="password_label">
+        <widget class="QLabel" name="repeat_password_label">
          <property name="font">
           <font>
            <family>Tahoma</family>
@@ -212,15 +268,15 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">#password_label { color: rgb(255, 255, 255);}</string>
+          <string notr="true">#repeat_password_label { color: rgb(255, 255, 255);}</string>
          </property>
          <property name="text">
-          <string>Senha</string>
+          <string>Repita senha</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="password_field">
+        <widget class="QLineEdit" name="repeat_password_field">
          <property name="maximumSize">
           <size>
            <width>280</width>
@@ -269,7 +325,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="enter_button">
+      <widget class="QPushButton" name="create_button">
        <property name="geometry">
         <rect>
          <x>390</x>
@@ -296,7 +352,7 @@
 }</string>
        </property>
        <property name="text">
-        <string>Entrar</string>
+        <string>Cadastrar</string>
        </property>
       </widget>
      </widget>
