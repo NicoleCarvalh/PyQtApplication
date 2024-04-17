@@ -5,7 +5,6 @@ from PyQt5.QtWidgets import QDialog, QApplication, QWidget
 import sqlite3
 
 
-
 class WelcomeScreen(QDialog):
   def __init__(self):
     super(WelcomeScreen, self).__init__()
@@ -22,7 +21,6 @@ class WelcomeScreen(QDialog):
     create = CreateAccScreen()
     widget.addWidget(create)
     widget.setCurrentIndex(widget.currentIndex()+1)
-
 
 class LoginScreen(QDialog):
   def __init__(self):
@@ -86,9 +84,6 @@ class CreateAccScreen(QDialog):
       conn.close()
 
       print("User registered :) ")
-      # fillprofile = FillProfileScreen()
-      # widget.addWidget(fillprofile)
-      # widget.setCurrentIndex(widget.currentIndex()+1)
     
 
 app = QApplication(sys.argv)
